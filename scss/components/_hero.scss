@@ -1,0 +1,206 @@
+// scss/components/_hero.scss
+
+.hero { // НАЧАЛО ЕДИНСТВЕННОГО И ПРАВИЛЬНОГО БЛОКА .hero
+  background-color: $background-light;
+  padding: ($spacing-unit * 5) $container-padding-x;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  // Медиа-запрос для самой секции .hero на небольших экранах
+  @media (max-width: 768px) { // Для планшетов и ниже
+    padding-top: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 3;
+    min-height: auto; // Позволим высоте определяться контентом
+  }
+
+  .container { // Этот класс относится к div внутри .hero
+    width: 100%;
+  }
+
+  &__title {
+    font-size: $font-size-h1 * 1.2;
+    color: $text-color-dark;
+    margin-bottom: $spacing-unit * 1;
+    font-weight: 700;
+    line-height: 1.3;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-h1 * 1;
+    }
+    @media (max-width: 480px) {
+      font-size: $font-size-h1 * 0.85;
+      line-height: 1.25;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-large;
+    color: $text-color-light;
+    margin-bottom: $spacing-unit * 2.5;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+
+    @media (max-width: 768px) {
+      font-size: $font-size-base;
+      line-height: 1.7;
+      margin-bottom: $spacing-unit * 2;
+    }
+    @media (max-width: 480px) {
+      max-width: 95%;
+    }
+  }
+
+  &__subscribe-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; // Чтобы инпут и кнопка были одной высоты в строке
+    gap: $spacing-unit * 0.75;
+    margin-bottom: $spacing-unit * 1.5;
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: $spacing-unit * 1;
+    }
+  }
+
+  // ОБЕРТКА для поля ввода и подсказок
+  &__email-input-wrapper {
+    position: relative;
+    flex-grow: 1; // Занимает доступное место в строке формы
+    // max-width не нужен здесь, если инпут внутри будет 100% ширины
+
+    @media (max-width: 576px) { // Когда форма становится вертикальной
+      width: 100%; // Обертка занимает всю ширину формы
+    }
+  }
+
+  &__email-input {
+    width: 100%; // Инпут всегда на всю ширину своей обертки
+    padding: ($spacing-unit * 0.85) ($spacing-unit * 1.25);
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-size: $font-size-base;
+    // flex-grow и min-width убираем отсюда, они теперь управляются через &__email-input-wrapper
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+
+    // @media для __email-input больше не нужны здесь,
+    // т.к. его ширина 100% от &__email-input-wrapper,
+    // а &__email-input-wrapper уже адаптируется
+  }
+
+  // КОНТЕЙНЕР ДЛЯ ПОДСКАЗОК
+  &__email-suggestions {
+    position: absolute;
+    top: calc(100% + 5px); // Чуть ниже инпута, с небольшим отступом
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex; // Используем flex для расположения "пузырьков"
+    flex-direction: column; // Пузырьки будут идти столбиком
+    align-items: flex-start; // Выравниваем пузырьки по левому краю (или center)
+    gap: $spacing-unit * 0.5; // Промежуток между пузырьками
+
+    // Начальное состояние для анимации (скрыто)
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.97);
+    pointer-events: none; // Чтобы нельзя было кликнуть, пока скрыто
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s linear 0.2s;
+
+    // Класс для показа контейнера (будем добавлять/удалять через JS)
+    &--visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      transition-delay: 0s; // Убираем задержку для visibility при показе
+    }
+
+    .suggestion-item { // Стили для каждого "пузырька"-подсказки
+      background-color: lighten($primary-color, 42%); // Очень светлый синий фон
+      color: darken($primary-color, 10%);           // Темно-синий текст
+      padding: ($spacing-unit * 0.4) ($spacing-unit * 1); // Уменьшим паддинги для "пузырька"
+      border-radius: 20px;                         // Сильно скругляем углы для эффекта пилюли/пузырька
+      font-size: $font-size-base * 0.9;            // Чуть мельче шрифт
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 1px 2px rgba($text-color-dark, 0.1); // Легкая тень
+      text-align: left; // Текст внутри пузырька по левому краю
+
+      &:hover {
+        background-color: lighten($primary-color, 35%);
+        color: $white;
+        transform: translateY(-1px) scale(1.02); // Легкий эффект приподнятия и увеличения
+        box-shadow: 0 2px 4px rgba($text-color-dark, 0.15);
+      }
+    }
+  }
+
+
+  &__subscribe-button {
+    padding: ($spacing-unit * 0.85) ($spacing-unit * 2);
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    font-size: $font-size-base;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+
+    &:hover {
+      background-color: $primary-color-dark;
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
+
+  &__full-list-link {
+    // ... существующие стили ...
+    display: inline-flex; // Используем flex для выравнивания текста и стрелки
+    align-items: center;
+    gap: 6px; // Отступ между текстом и стрелкой
+
+    .arrow-down { // Стили для самой стрелочки
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid currentColor; // Использует цвет текста ссылки
+      opacity: 0.7;
+    }
+
+    &:hover {
+      // ... существующие стили ...
+      .arrow-down {
+        opacity: 1;
+      }
+    }
+    // ... существующие медиа-запросы ...
+  }
+
+} // КОНЕЦ ЕДИНСТВЕННОГО И ПРАВИЛЬНОГО БЛОКА .hero

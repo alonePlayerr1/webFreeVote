@@ -1,0 +1,99 @@
+// scss/components/_advice-section.scss
+
+.advice {
+  padding: ($spacing-unit * 4) $container-padding-x ($spacing-unit * 5); // Отступы секции
+  background-color: lighten($background-light, 2%); // Чуть светлее основного фона или другой цвет
+}
+
+// Общий стиль для заголовков секций (можно будет вынести в _base.scss или _typography.scss)
+.section-title {
+  text-align: center;
+  font-size: $font-size-h1 * 0.9; // Немного меньше главного H1
+  color: $text-color-dark;
+  margin-bottom: $spacing-unit * 3; // Отступ под заголовком секции
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-h1 * 0.8;
+    margin-bottom: $spacing-unit * 2.5;
+  }
+}
+
+.advice-grid {
+  display: flex; // Используем Flexbox для сетки
+  flex-wrap: wrap; // Позволяем карточкам переноситься на новую строку
+  gap: $spacing-unit * 2; // Промежуток между карточками
+  justify-content: center; // Центрируем карточки, если их не хватает для полного ряда
+}
+
+.advice-card {
+  background-color: $white;
+  border-radius: 8px;
+  padding: $spacing-unit * 1.75;
+  box-shadow: 0 4px 12px rgba($text-color-dark, 0.08);
+  display: flex;
+  flex-direction: column; // Элементы внутри карточки будут идти сверху вниз
+  // Ширина карточек: (100% - (2 * промежуток)) / 3 для 3-х колонок
+  // (100% - (1 * промежуток)) / 2 для 2-х колонок
+  // 100% для 1-й колонки
+  flex-basis: calc(33.333% - ($spacing-unit * 2 * 2 / 3)); // Для 3-х колонок с учетом gap
+  min-width: 280px; // Минимальная ширина карточки, чтобы не сжимались слишком сильно
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba($text-color-dark, 0.12);
+  }
+
+  &__icon {
+    margin-bottom: $spacing-unit * 1.25;
+    text-align: center; // Если иконка будет inline-block или img
+
+    img, svg { // Стили для иконки внутри
+      max-width: 60px; // Ограничиваем размер иконки
+      height: auto;
+      display: inline-block; // или block, если нужно margin: auto для центрирования
+    }
+  }
+
+  &__title {
+    font-size: $font-size-large * 1.1;
+    color: $text-color-dark;
+    margin-bottom: $spacing-unit * 0.75;
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: $font-size-base * 0.95;
+    color: $text-color-light;
+    line-height: 1.65;
+    margin-bottom: $spacing-unit * 1.5;
+    flex-grow: 1; // Текстовый блок будет растягиваться, чтобы ссылка "Узнать больше" была внизу
+  }
+
+  &__link {
+    display: inline-block; // Чтобы отступы работали корректно
+    color: $primary-color;
+    font-weight: 600;
+    font-size: $font-size-base * 0.9;
+    text-decoration: none; // Уже есть в _base.scss, но для надежности
+
+    &:hover {
+      color: $primary-color-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Адаптивность для сетки карточек
+@media (max-width: 992px) { // Планшеты - 2 колонки
+  .advice-card {
+    flex-basis: calc(50% - ($spacing-unit * 2 * 1 / 2));
+  }
+}
+
+@media (max-width: 600px) { // Мобильные - 1 колонка
+  .advice-card {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,62 @@
+// scss/_base.scss
+
+html {
+  box-sizing: border-box; // Улучшенная блочная модель
+  scroll-behavior: smooth; // Для плавного скролла по якорям (если не будете делать JS-ом)
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; // Наследование box-sizing
+  margin: 0;           // Базовый сброс margin
+  padding: 0;          // Базовый сброс padding
+}
+
+body {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-color-dark;
+  background-color: $white; // Общий фон страницы
+  -webkit-font-smoothing: antialiased; // Улучшенное сглаживание шрифтов в WebKit
+  -moz-osx-font-smoothing: grayscale;  // Улучшенное сглаживание шрифтов в Firefox
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-unit * 0.75;
+  font-weight: 600; // Сделаем заголовки чуть жирнее
+  line-height: 1.2;
+}
+
+h1 { font-size: $font-size-h1; }
+// Добавьте другие размеры заголовков по необходимости
+
+p {
+  margin-bottom: $spacing-unit;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color-dark;
+    text-decoration: underline;
+  }
+}
+
+img, svg { // Базовая адаптивность для изображений
+  max-width: 100%;
+  height: auto;
+  display: block; // Убирает лишние отступы под изображениями
+}
+
+.container {
+  width: 100%; // Для начальной адаптивности
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}

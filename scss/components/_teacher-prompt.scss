@@ -1,0 +1,39 @@
+// scss/components/_teacher-prompt.scss
+
+.teacher-prompt {
+  padding: ($spacing-unit * 2.5) $container-padding-x; // Вертикальные и боковые отступы
+  background-color: $white; // Или другой подходящий фон, если нужно отличие
+
+  &__text {
+    display: flex; // Для выравнивания иконки и текста
+    align-items: flex-start; // Выравниваем по верху, если текст многострочный
+    gap: $spacing-unit * 0.8; // Отступ между иконкой и текстом
+    font-size: $font-size-base * 0.95; // Немного меньше основного
+    line-height: 1.7;
+    color: $text-color-light;
+    // max-width можно задать, если нужно ограничить ширину текста, как в Hero
+    // max-width: 800px;
+    // margin-left: auto;
+    // margin-right: auto;
+
+    .icon-play-arrow {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 9px solid $primary-color; // Цвет стрелки
+      margin-top: 4px; // Небольшая коррекция для вертикального выравнивания с текстом
+      flex-shrink: 0; // Чтобы иконка не сжималась
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: $spacing-unit * 2;
+    padding-bottom: $spacing-unit * 2;
+
+    &__text {
+      font-size: $font-size-base * 0.9;
+    }
+  }
+}

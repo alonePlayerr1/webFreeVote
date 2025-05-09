@@ -1,0 +1,14 @@
+# IDE configuration
+.idea/
+*.iml
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/ # Если есть папка для сборки проекта
+
+# OS generated files
+.DS_Store
+Thumbs.db

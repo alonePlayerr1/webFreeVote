@@ -1,0 +1,20 @@
+// scss/main.scss
+
+// 1. Импорт переменных (должен быть первым, чтобы переменные были доступны везде)
+@import 'variables';
+
+// 2. Импорт базовых стилей (включая сбросы или нормализацию, если вы их добавите)
+// @import 'normalize'; // Раскомментируйте, если используете normalize.css
+// @import 'reset';   // Раскомментируйте, если используете свой reset.css
+@import 'base';      // Наши базовые стили для HTML, body, типографики, .container и т.д.
+
+// 3. Стили для отдельных компонентов/секций
+@import 'components/hero';
+@import 'components/teacher-prompt';
+@import 'components/advice-section';
+// @import 'components/advice';   // Будет добавлено позже
+// @import 'components/articles'; // Будет добавлено позже
+// @import 'components/footer';   // Будет добавлено позже
+
+// 4. Утилиты (если понадобятся)
+// @import 'utils';
