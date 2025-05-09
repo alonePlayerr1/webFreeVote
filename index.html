@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ваш Заголовок Сайта</title>
-    <meta name="description" content="Краткое описание вашего сайта для поисковых систем">
+    <title>Свободный голос — шаг к уверенности</title>
+    <meta name="description" content="Полезные ресурсы, советы и методы, которые помогут детям преодолеть страхи и стать более уверенными в себе.">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -14,67 +14,187 @@
         <h1 class="hero__title">Свободный голос — шаг к уверенности</h1>
         <p class="hero__text">Добро пожаловать на наш сайт, посвященный проблеме страха учеников 3 класса отвечать перед одноклассниками. Здесь мы собираем полезные ресурсы, советы и методы, которые помогут детям преодолеть свои страхи и стать более уверенными в себе. Наша цель — создать поддерживающую среду, где каждый ученик сможет развивать свои навыки и уверенность, а также научиться справляться с волнением.</p>
         <form class="hero__subscribe-form" id="subscribeForm">
-            <div class="hero__email-input-wrapper"> <input type="email" class="hero__email-input" id="emailInput" placeholder="Введите ваш e-mail" required autocomplete="off">
+            <div class="hero__email-input-wrapper">
+                <input type="email" class="hero__email-input" id="emailInput" placeholder="Введите ваш e-mail" required autocomplete="off" aria-label="Email для подписки">
                 <div class="hero__email-suggestions" id="emailSuggestions">
                 </div>
             </div>
             <button type="submit" class="hero__subscribe-button">Подписаться</button>
         </form>
-        <a href="#full-list" class="hero__full-list-link">Читать все записи <span class="arrow-down"></span></a>
+        <a href="#full-list" class="hero__full-list-link js-smooth-scroll">Читать все записи <span class="arrow-down"></span></a>
     </div>
 </header>
 
 <section class="teacher-prompt" id="teacherPrompt">
     <div class="container">
         <p class="teacher-prompt__text">
-            <span class="icon-play-arrow"></span> Здесь мы оставим подсказки для молодых учителей начальных классов, а также для студентов педагогических колледжей и университетов, которые сталкивались или столкнуться в будущем с проблемой, что определенное количество учеников 3 класса испытывают страх отвечать перед одноклассниками.
+            <span class="icon-play-arrow"></span>
+            Здесь мы оставим подсказки для молодых учителей начальных классов, а также для студентов педагогических колледжей и университетов, которые сталкивались или столкнуться в будущем с проблемой, что определенное количество учеников 3 класса испытывают страх отвечать перед одноклассниками.
         </p>
     </div>
 </section>
-
 <section class="advice" id="advice">
     <div class="container">
-        <h2 class="section-title">Полезные Советы</h2> <div class="advice-grid">
-        <div class="advice-card">
-            <div class="advice-card__icon">
-                <img src="assets/images/icon-placeholder.svg" alt="Иконка совета 1">
-            </div>
-            <h3 class="advice-card__title">Совет №1: Дышите Глубже</h3>
-            <p class="advice-card__text">Перед ответом сделайте несколько глубоких вдохов. Это поможет успокоиться и собраться с мыслями.</p>
-            <a href="#" class="advice-card__link">Узнать больше &rarr;</a>
-        </div>
+        <h2 class="section-title">Полезные Советы</h2>
+        <div class="advice-grid">
+            <div class="advice-card">
+                <div class="advice-card__icon">
+                    <img src="assets/images/boy1.png" alt="Иконка: Мальчик глубоко дышит">
+                </div>
+                <h3 class="advice-card__title">Совет №1: Дышите Глубже</h3>
+                <p class="advice-card__text">Перед ответом сделайте несколько глубоких вдохов. Это поможет успокоиться и собраться с мыслями.</p>
+                <a href="#article-breathing-techniques" class="advice-card__link js-smooth-scroll">Узнать больше &rarr;</a> </div>
 
-        <div class="advice-card">
-            <div class="advice-card__icon">
-                <img src="assets/images/icon-placeholder.svg" alt="Иконка совета 2">
+            <div class="advice-card">
+                <div class="advice-card__icon">
+                    <img src="assets/images/book2.png" alt="Иконка: Открытая книга с галочкой">
+                </div>
+                <h3 class="advice-card__title">Совет №2: Подготовьтесь Заранее</h3>
+                <p class="advice-card__text">Хорошая подготовка придает уверенности. Знайте материал, который будете рассказывать.</p>
+                <a href="#article-preparation-tips" class="advice-card__link js-smooth-scroll">Узнать больше &rarr;</a>
             </div>
-            <h3 class="advice-card__title">Совет №2: Подготовьтесь Заранее</h3>
-            <p class="advice-card__text">Хорошая подготовка придает уверенности. Знайте материал, который будете рассказывать.</p>
-            <a href="#" class="advice-card__link">Узнать больше &rarr;</a>
-        </div>
 
-        <div class="advice-card">
-            <div class="advice-card__icon">
-                <img src="assets/images/icon-placeholder.svg" alt="Иконка совета 3">
+            <div class="advice-card">
+                <div class="advice-card__icon">
+                    <img src="assets/images/plant3.png" alt="Иконка: Росток растения">
+                </div>
+                <h3 class="advice-card__title">Совет №3: Начните с Малого</h3>
+                <p class="advice-card__text">Потренируйтесь отвечать перед зеркалом, родными или друзьями. Начните с комфортной обстановки.</p>
+                <a href="#article-start-small" class="advice-card__link js-smooth-scroll">Узнать больше &rarr;</a>
             </div>
-            <h3 class="advice-card__title">Совет №3: Начните с Малого</h3>
-            <p class="advice-card__text">Потренируйтесь отвечать перед зеркалом, родными или друзьями. Начните с комфортной обстановки.</p>
-            <a href="#" class="advice-card__link">Узнать больше &rarr;</a>
         </div>
-
-    </div>
     </div>
 </section>
+<section class="articles" id="full-list"> <div class="container">
+    <h2 class="section-title">Подробные Статьи</h2>
 
-<section class="articles" id="articles">
+    <article class="article-post" id="article-breathing-techniques"> <header class="article-post__header">
+        <h3 class="article-post__title">Как побороть страх публичных выступлений: Первые шаги и техники дыхания</h3>
+        <p class="article-post__meta">
+            <time datetime="2025-05-08">8 мая 2025</time> | Категория: Советы детям
+        </p>
+    </header>
+        <figure class="article-post__figure"> <img src="assets/images/final4.png" alt="Ребенок уверенно отвечает у доски" class="article-post__image">
+        </figure>
+        <div class="article-post__content">
+            <p>Страх выступать перед классом — это очень распространенное явление, особенно в младших классах. Важно понимать, что это нормально, и многие успешные люди когда-то испытывали подобные чувства. Первый шаг к преодолению этого страха — признать его и захотеть с ним поработать.</p>
+            <p><strong>Дыхательные упражнения</strong> – один из самых простых и эффективных способов быстро успокоиться. Когда мы волнуемся, наше дыхание становится частым и поверхностным. Глубокое, размеренное дыхание, наоборот, посылает сигнал мозгу, что все в порядке. Попробуйте "квадратное дыхание": вдох на 4 счета, задержка на 4 счета, выдох на 4 счета, задержка на 4 счета. Повторите несколько раз перед выходом к доске.</p>
+            <p>Начните с малого. Попробуйте рассказать о чем-то интересном одному или двум близким друзьям или членам семьи. Выберите тему, которая вам действительно нравится и в которой вы хорошо разбираетесь. Это поможет вам почувствовать себя увереннее. Обратите внимание на свою позу, голос и зрительный контакт, даже в такой небольшой аудитории.</p>
+            <p>Еще один важный момент — это подготовка. Чем лучше вы знаете материал, тем меньше поводов для волнения. Разбейте свое выступление на небольшие части, составьте план. Вы можете даже записать себя на видео, чтобы посмотреть со стороны и отметить моменты, которые можно улучшить. Помните, каждый маленький шаг вперед — это уже победа!</p>
+        </div>
+    </article>
+
+    <article class="article-post" id="article-preparation-tips">
+        <header class="article-post__header">
+            <h3 class="article-post__title">Роль поддержки родителей и учителей в развитии уверенности ребенка при подготовке к ответам</h3>
+            <p class="article-post__meta">
+                <time datetime="2025-05-07">7 мая 2025</time> | Категория: Для родителей и учителей
+            </p>
+        </header>
+        <div class="article-post__content">
+            <p>Поддержка со стороны взрослых играет ключевую роль в том, как ребенок справляется со своими страхами, включая боязнь публичных выступлений. Важно создать дома и в школе атмосферу доверия и принятия, где ребенок не будет бояться ошибаться. Позитивное подкрепление и акцент на усилиях, а не только на результате, творят чудеса.</p>
+            <p><strong>Конкретные шаги для родителей и учителей:</strong></p>
+            <ul>
+                <li>Поощряйте любые попытки ребенка выступить, даже если они неидеальны. Хвалите за смелость и усилия.</li>
+                <li>Обсуждайте с ребенком его чувства, помогайте ему анализировать причины волнения и находить способы его уменьшения.</li>
+                <li>Практикуйте выступления в игровой форме. Пусть ребенок будет "учителем" для своих игрушек или для вас.</li>
+                <li>Помогите с подготовкой материала: разбить на части, выделить главное, подготовить наглядные пособия (если уместно).</li>
+                <li>Учителя могут использовать групповые проекты, где каждый вносит свой небольшой вклад в общее выступление, постепенно увеличивая сложность индивидуальных задач.</li>
+            </ul>
+            <p>Помните, что ваша вера в ребенка — это мощнейший стимул для него. Создавайте ситуации успеха, отмечайте его достижения, и постепенно он научится верить в свои силы и спокойнее относиться к выступлениям перед аудиторией.</p>
+        </div>
+    </article>
+
+    <article class="article-post" id="article-start-small"> <header class="article-post__header">
+        <h3 class="article-post__title">Начинаем с малого: как постепенно привыкнуть к выступлениям</h3>
+        <p class="article-post__meta">
+            <time datetime="2025-05-06">6 мая 2025</time> | Категория: Практические советы
+        </p>
+    </header>
+        <div class="article-post__content">
+            <p>Идея "начать с малого" является фундаментальной в преодолении любых страхов. Вместо того чтобы сразу бросаться в "бой" с большим и сложным выступлением, лучше разбить путь на управляемые этапы. Это снижает тревожность и позволяет накапливать положительный опыт.</p>
+            <p><strong>Примеры маленьких шагов:</strong></p>
+            <ol>
+                <li><strong>Ответ с места:</strong> Начните с коротких ответов или комментариев с места, не выходя к доске.</li>
+                <li><strong>Выступление перед зеркалом:</strong> Проговорите свой ответ или небольшой рассказ, глядя на себя в зеркало. Это поможет отследить мимику и жесты.</li>
+                <li><strong>Выступление перед семьей или близким другом:</strong> Это самая безопасная аудитория, которая всегда поддержит.</li>
+                <li><strong>Ответ в маленькой группе:</strong> Если в классе есть групповая работа, активно участвуйте в обсуждениях и презентации результатов от группы.</li>
+                <li><strong>Короткое сообщение у доски:</strong> Попросите учителя дать вам возможность сделать очень короткое сообщение на хорошо знакомую тему.</li>
+            </ol>
+            <p>Каждый такой шаг, даже самый маленький, будет укреплять вашу уверенность. Хвалите себя за каждую попытку! Со временем вы заметите, что волнение становится все меньше, а желание поделиться своими мыслями — все больше.</p>
+        </div>
+    </article>
+
+</div>
+</section>
+<section class="testimonials" id="testimonials">
     <div class="container">
+        <h2 class="section-title">Что о нас говорят</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <blockquote class="testimonial-card__text">
+                    "Этот сайт стал настоящей находкой! Мой сын очень боялся отвечать у доски, но благодаря советам и упражнениям отсюда, он стал гораздо увереннее. Спасибо большое создателям!"
+                </blockquote>
+                <p class="testimonial-card__author">- Иванова Мария</p>
+                <p class="testimonial-card__source">Мама ученика 3 "А" класса</p>
+            </div>
+
+            <div class="testimonial-card">
+                <blockquote class="testimonial-card__text">
+                    "Как учитель начальных классов, я часто сталкиваюсь с проблемой страха у детей перед публичными ответами. Ресурсы на этом сайте очень помогли мне в работе, предложили свежие идеи и подходы. Рекомендую коллегам!"
+                </blockquote>
+                <p class="testimonial-card__author">- Петров Сергей</p>
+                <p class="testimonial-card__source">Учитель начальных классов, стаж 12 лет</p>
+            </div>
+
+            <div class="testimonial-card">
+                <blockquote class="testimonial-card__text">
+                    "Сначала я думал, что это просто еще один сайт. Но тут реально полезные советы! Я попробовал дыхательные упражнения, и мне стало легче отвечать. И игры прикольные."
+                </blockquote>
+                <p class="testimonial-card__author">- Коля В.</p>
+                <p class="testimonial-card__source">Ученик 3 "Б" класса</p>
+            </div>
+        </div>
     </div>
 </section>
-
 <footer class="footer" id="footer">
     <div class="container">
+        <div class="footer-content"> <div class="footer-section about-us">
+            <h4>О нас</h4>
+            <p>Этот сайт создан, чтобы помочь ученикам младших классов преодолеть страх публичных выступлений и стать увереннее.</p>
+        </div>
+            <div class="footer-section quick-links">
+                <h4>Быстрые ссылки</h4>
+                <ul>
+                    <li><a href="#hero" class="js-smooth-scroll">В начало</a></li>
+                    <li><a href="#advice" class="js-smooth-scroll">Полезные советы</a></li>
+                    <li><a href="#full-list" class="js-smooth-scroll">Все статьи</a></li>
+                    <li><a href="#teacherPrompt" class="js-smooth-scroll">Для учителей</a></li>
+                    <li><a href="#testimonials" class="js-smooth-scroll">Отзывы</a></li> </ul>
+            </div>
+            <div class="footer-section contact-info">
+                <h4>Свяжитесь с нами (Пример)</h4>
+                <p>Если у вас есть вопросы или предложения, пишите нам (это просто пример, функционала отправки нет):</p>
+                <p>Email: info@example.com</p>
+            </div>
+
+            <div class="footer-section external-links">
+                <h4>Полезные ресурсы</h4>
+                <ul>
+                    <li><a href="https://www.example.com/child-psychology" target="_blank" rel="noopener noreferrer">Детская психология (Пример)</a></li>
+                    <li><a href="https://www.example.com/public-speaking-kids" target="_blank" rel="noopener noreferrer">Выступления для детей (Пример)</a></li>
+                    <li><a href="https://www.example.com/teacher-resources" target="_blank" rel="noopener noreferrer">Материалы для учителей (Пример)</a></li>
+                    <li><a href="https://www.example.com/parenting-tips" target="_blank" rel="noopener noreferrer">Советы родителям (Пример)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> "Свободный Голос". Все права защищены (Пример).</p>
+        </div>
     </div>
 </footer>
+<a href="#hero" class="scroll-to-top js-smooth-scroll" id="scrollToTopButton" title="Наверх">
+    <span>&uarr;</span> </a>
 
 <script src="js/main.js" defer></script>
 </body>

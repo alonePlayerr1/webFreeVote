@@ -1,0 +1,144 @@
+// scss/components/_articles-section.scss
+
+.articles {
+  padding: ($spacing-unit * 4) $container-padding-x ($spacing-unit * 5);
+  background-color: $white; // Белый фон для статей, или можно оставить фон body
+}
+
+.article-post {
+  margin-bottom: $spacing-unit * 3.5; // Отступ между статьями
+  padding-bottom: $spacing-unit * 2.5; // Отступ под статьей, если есть разделитель
+  border-bottom: 1px solid lighten($border-color, 10%); // Легкий разделитель между статьями
+
+  &:last-child {
+    margin-bottom: 0; // У последней статьи убираем нижний отступ
+    border-bottom: none; // И разделитель
+  }
+
+  &__header {
+    margin-bottom: $spacing-unit * 1.5;
+  }
+
+  &__title {
+    font-size: $font-size-h1 * 0.75; // Размер заголовка статьи
+    color: $text-color-dark;
+    margin-bottom: $spacing-unit * 0.4;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  &__meta {
+    font-size: $font-size-base * 0.85;
+    color: $text-color-light;
+    margin-bottom: $spacing-unit;
+  }
+
+  &__content {
+    p {
+      font-size: $font-size-base;
+      line-height: 1.75;
+      color: $text-color-dark;
+      margin-bottom: $spacing-unit * 1.25;
+
+      &:last-of-type {
+        // У последнего абзаца в контенте убираем нижний отступ,
+        // только если это действительно последний элемент контента.
+        // Если за ним идет список или что-то еще, это правило может быть не нужно
+        // или его нужно будет сделать более специфичным.
+        // Пока оставим так, но имейте в виду.
+        margin-bottom: $spacing-unit * 1.5;
+      }
+    }
+
+    // Стили для изображений внутри статей
+    .article-post__image { // Используем прямой класс, а не вложенность, для чуть большей специфичности и ясности
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-top: $spacing-unit * 1.5;
+      margin-bottom: $spacing-unit * 1.5;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba($text-color-dark, 0.07);
+    }
+
+    // СТИЛИ ДЛЯ СПИСКОВ (ul, ol) - ГЛОБАЛЬНЫЕ ДЛЯ КОНТЕНТА СТАТЬИ
+    ul, ol {
+      margin-top: $spacing-unit * 1; // Добавим отступ сверху перед списком
+      margin-bottom: $spacing-unit * 1.25;
+      padding-left: $spacing-unit * 2.2; // Отступ слева для маркеров/цифр
+
+      li {
+        margin-bottom: $spacing-unit * 0.6;
+        line-height: 1.75; // Как у параграфов для консистентности
+        color: $text-color-dark;
+
+        &::marker {
+          // color: $primary-color; // Раскомментируйте, если хотите цветные маркеры/цифры
+        }
+
+        // Если внутри li есть вложенные p или другие блочные элементы, им тоже могут понадобиться стили
+        p {
+          margin-bottom: $spacing-unit * 0.5; // Уменьшим отступ у параграфов внутри li
+          &:last-child {
+            margin-bottom: 0; // У последнего параграфа внутри li убираем отступ
+          }
+        }
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-type: decimal;
+    }
+  } // Конец &__content
+
+  &__read-more {
+    display: inline-block;
+    margin-top: $spacing-unit * 0.5; // Небольшой отступ сверху, если текст перед ним
+    color: $primary-color;
+    font-weight: 600;
+    font-size: $font-size-base * 0.95;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color-dark;
+      text-decoration: underline;
+    }
+  }
+} // Конец .article-post
+
+// Адаптивность для статей (в основном шрифты и отступы)
+@media (max-width: 768px) {
+  .articles { // Стили для всей секции .articles на мобильных
+    padding-top: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 4;
+  }
+
+  .article-post { // Стили для каждой статьи .article-post на мобильных
+    margin-bottom: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 2;
+
+    &__title {
+      font-size: $font-size-h1 * 0.65;
+      line-height: 1.25;
+    }
+
+    &__content {
+      p {
+        line-height: 1.7; // Можно чуть уменьшить межстрочный интервал на мобильных, если нужно
+      }
+
+      // Если нужны специфичные изменения для списков на мобильных, их можно добавить сюда.
+      // Например, уменьшить padding-left для списков:
+      ul, ol {
+        padding-left: $spacing-unit * 1.8; // Чуть меньше отступ для мобильных
+        li {
+          margin-bottom: $spacing-unit * 0.5;
+        }
+      }
+    }
+  }
+} // Конец медиа-запроса @media (max-width: 768px)

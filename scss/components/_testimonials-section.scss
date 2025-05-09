@@ -1,0 +1,79 @@
+// scss/components/_testimonials-section.scss
+
+.testimonials {
+  padding: ($spacing-unit * 4) $container-padding-x ($spacing-unit * 5);
+  background-color: $background-light; // Можно использовать такой же фон, как у Hero или Advice, или другой
+
+  // Заголовок .section-title уже стилизован, но если нужны отличия:
+  // .section-title { ... }
+}
+
+.testimonials-grid {
+  display: grid; // Используем CSS Grid для сетки
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Адаптивные колонки
+  gap: $spacing-unit * 2.5; // Промежуток между карточками
+}
+
+.testimonial-card {
+  background-color: $white;
+  border-radius: 8px;
+  padding: $spacing-unit * 2;
+  box-shadow: 0 5px 15px rgba($text-color-dark, 0.07);
+  display: flex;
+  flex-direction: column;
+  position: relative; // Для возможного декоративного элемента (кавычек)
+
+  // Декоративные кавычки (опционально)
+  &::before {
+    content: '\201C'; // Символ левой двойной кавычки “
+    font-family: $font-family-serif; // Или другой декоративный шрифт
+    font-size: $font-size-h1 * 2.5; // Большие кавычки
+    color: lighten($primary-color, 35%);
+    position: absolute;
+    top: $spacing-unit * 0.5;
+    left: $spacing-unit * 1;
+    opacity: 0.8;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: $font-size-base;
+    line-height: 1.7;
+    color: $text-color-light;
+    margin-bottom: $spacing-unit * 1.5;
+    font-style: italic; // Текст цитаты курсивом
+    position: relative; // Чтобы текст был поверх псевдо-элемента кавычек
+    z-index: 1;
+  }
+
+  &__author {
+    font-size: $font-size-base * 1.05; // Чуть крупнее для имени
+    color: $text-color-dark;
+    font-weight: 600;
+    margin-top: auto; // Прижимает автора и источник к низу карточки, если карточки разной высоты
+    margin-bottom: $spacing-unit * 0.25;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__source {
+    font-size: $font-size-base * 0.85;
+    color: darken($text-color-light, 10%);
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Адаптивность для отзывов (в основном управляется grid-template-columns)
+@media (max-width: 768px) {
+  .testimonials-grid {
+    gap: $spacing-unit * 2; // Уменьшим промежуток на мобильных
+  }
+  .testimonial-card {
+    padding: $spacing-unit * 1.5;
+    &::before { // Уменьшим кавычки на мобильных
+      font-size: $font-size-h1 * 2;
+    }
+  }
+}

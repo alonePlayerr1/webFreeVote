@@ -1,0 +1,138 @@
+// scss/layout/_footer.scss
+
+.footer {
+  background-color: darken($background-light, 5%); // Чуть темнее основного фона секций
+  color: $text-color-light;
+  padding: ($spacing-unit * 3) $container-padding-x ($spacing-unit * 2);
+  border-top: 1px solid lighten($border-color, 5%);
+
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap; // Позволит колонкам перестраиваться
+    gap: $spacing-unit * 2.5; // Промежуток между колонками
+    margin-bottom: $spacing-unit * 2;
+  }
+
+  .footer-section {
+    flex-grow: 1; // Позволит колонкам занимать доступное пространство
+    min-width: 250px; // Минимальная ширина для колонки перед переносом
+
+    // Распределение по ширине (пример для 3-х колонок)
+    // Если нужно точное деление, можно использовать flex-basis
+    // Например, для 3-х колонок: flex-basis: calc(33.333% - #{$spacing-unit * 2.5 * 2 / 3});
+
+
+    h4 {
+      font-size: $font-size-large * 0.95;
+      color: $text-color-dark;
+      margin-bottom: $spacing-unit * 1;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: $font-size-base * 0.9;
+      line-height: 1.6;
+      margin-bottom: $spacing-unit * 0.75;
+    }
+
+    ul {
+      list-style: none; // Убираем стандартные маркеры
+      padding-left: 0; // Убираем стандартный отступ
+      margin-bottom: 0;
+
+      li {
+        margin-bottom: $spacing-unit * 0.5;
+
+        a {
+          color: $text-color-light;
+          text-decoration: none;
+          font-size: $font-size-base * 0.9;
+
+          &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: $spacing-unit * 1.5;
+    border-top: 1px solid lighten($border-color, 10%);
+    font-size: $font-size-base * 0.85;
+    color: darken($text-color-light, 10%);
+  }
+
+  // Адаптивность для футера
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column; // Колонки встанут друг под друга
+      gap: $spacing-unit * 2;
+    }
+
+    .footer-section {
+      min-width: 100%; // Каждая колонка на всю ширину
+      margin-bottom: $spacing-unit * 1.5; // Добавим отступ между секциями в колонке
+    }
+  }
+}
+// scss/layout/_footer.scss
+// ... (все существующие стили для .footer) ...
+
+// Стили для кнопки "Наверх"
+.scroll-to-top {
+  position: fixed; // Фиксированное позиционирование
+  bottom: 25px;
+  right: 25px;
+  background-color: rgba($primary-color, 0.85); // Основной цвет с прозрачностью
+  color: $white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; // Круглая кнопка
+  text-align: center;
+  line-height: 45px; // Вертикальное центрирование стрелки
+  font-size: 22px;   // Размер стрелки
+  text-decoration: none;
+  z-index: 100;      // Поверх других элементов
+
+  // Начальное состояние (скрыто)
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s, background-color 0.2s ease;
+
+  &:hover {
+    background-color: $primary-color-dark; // Темнее при наведении
+    transform: translateY(18px) scale(0.92); // Легкий эффект
+  }
+
+  // Класс для показа кнопки
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  span { // Если используете span для стрелки
+    display: inline-block;
+    position: relative;
+    // Если стандартная стрелка &uarr; плохо выглядит, можно настроить ее или использовать SVG
+  }
+}
+
+// Адаптивность для кнопки "Наверх"
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
